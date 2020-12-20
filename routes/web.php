@@ -56,10 +56,8 @@ Route::get('objShow','Front\UserController@showwithObject');
 Route::get('landing', function () {
 return view('landingPage');
 });
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home') ->middleware('verified');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
