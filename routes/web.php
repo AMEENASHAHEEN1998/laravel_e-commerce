@@ -63,3 +63,7 @@ Route::get('/home', 'HomeController@index')->name('home') ->middleware('verified
 Route::get('/redirect/{service}', 'SocialController@redirect');
 Route::get('/callback/{service}', 'SocialController@callback');
 
+Route::get('offer', 'OfferController@getOffer');
+Route::group(['prefix' => 'offer'], function () {
+    Route::get('store', 'OfferController@store');
+});
